@@ -6,7 +6,7 @@
   width: 100vw;
 }
 
-.headers{
+.headers {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -14,23 +14,23 @@
   height: 100px;
 }
 
-.main_div{
+.main_div {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.logo{
-  padding-left: 50px;
+.logo {
+    padding-left: 50px;
 }
 
 .form {
   width: 100vw;
   max-width: 50em;
-  *:hover + *, *:hover{
+  *:hover + *, *:hover {
     outline: 1px solid rgba(0,100,255, 0.5);
   }
-  *:focus + *, *:focus{
+  *:focus + *, *:focus {
     outline: 1px solid rgb(0,100,255);
   }
   input {
@@ -54,6 +54,5 @@
     border-radius: 0px 25px 25px 0px;
     box-shadow: 5px 5px 14px 5px rgba(0,0,0,0.1);
   }
-
 }
 
