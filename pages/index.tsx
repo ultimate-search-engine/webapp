@@ -4,16 +4,23 @@ import Image from 'next/image'
 //import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
 import {useRouter} from "next/router";
+import Form from "../components/form";
 
 function Home() {
-    const router = useRouter()
-    const submitSearch = async (event:any) => {
-        event.preventDefault()
-        await router.push({
-            pathname: '/search',
-            query: {q: event.target.elements.search.value}},
-        )
-    }
+
+    const suggests = [
+        {query: "iservery"},
+        {query: "grussmann"},
+        {query: "why do i pee white"},
+        {query: "mr hands"},
+        {query: "skolaonline"},
+        {query: "velky krtkus"},
+        {query: "okkr"},
+        {query: "how to seduce a woman"},
+        {query: "rule34"},
+        {query: "what is kvadrant"}
+    ]
+
     return (
         <div className={styles.container}>
               <Head>
@@ -26,10 +33,7 @@ function Home() {
                     <span className={styles.logo}>
                         <Image src="/logo-t.svg" alt="Out logo" width={144} height={32} />
                     </span>
-                    <form className={styles.form} onSubmit={submitSearch}>
-                        <input id="search" name="search" placeholder="Search..." required={true}/>
-                        <button type="submit">Search</button>
-                    </form>
+                    <Form data={suggests}/>
                 </div>
             </main>
         </div>

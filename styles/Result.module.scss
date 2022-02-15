@@ -1,0 +1,49 @@
+.result_div{
+  margin: 0px 0.65rem;
+  background-color: white;
+  //justify-self: stretch;
+  border: 1px solid rgba(20,20,20,0.05);
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.01);
+  transition: box-shadow 0.5s;
+  width: calc(100/3*2%);
+  max-width: 75ch;
+  justify-self:flex-end;
+}
+
+.result_div:hover{
+  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.05);
+}
+
+.result_h{
+  text-decoration: red grammar-error;
+  color: rgb(50,50,50);
+  margin: 0px;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.result_l{
+  margin-top: 0px;
+  font-size: 12px;
+  cursor: pointer;
+  color: rgb(10, 50, 200);
+  font-weight: 400;
+  width: fit-content;
+}
+
+.result_d{;
+  margin: 0px;
+  padding: 5px;
+  font-size: 0.9em;
+  color: rgb(30,30,30)
+}
+
+@media only screen and (max-width: 50em){
+  .result_div{
+    width: 95%;
+  }
+}
