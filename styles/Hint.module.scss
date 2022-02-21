@@ -1,23 +1,22 @@
 .hint_div{
-  margin: 0px 0.65rem;
+  margin: 0px 0.5em;
   background-color: white;
   // justify-self: stretch;
   border: 1px solid rgba(20,20,20,0.05);
   border-radius: 10px;
   padding: 10px 20px;
-  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.01);
-  width: 50%;
-  max-width: 75ch;
+  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.025);
+  min-width: 24em;
+  width: 24em;
   height: fit-content;
 }
 
 .hint_h{
-  text-decoration: red grammar-error;
-  color: rgb(50,50,50);
+  color: rgb(20,20,20);
   margin: 0px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   width: fit-content;
 }
 
@@ -30,7 +29,7 @@
   width: fit-content;
 }
 
-.hint_link{;
+.hint_link{
   margin: 0px;
   padding: 5px;
   font-size: 0.9em;
@@ -38,11 +37,23 @@
 }
 
 .hint_desc {
-
+  font-size: 12px;
+  font-weight: 300;
+  color: rgb(80,80,80)
 }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 65em) {
   .hint_div {
-    width: 95%;
+    width: 100%;
+    max-width: 40em;
+    min-width: 0px;
+    margin: 0;
   }
+}
+
+
+
+hr.thin{
+  border: 0;
+  border-top: 1px solid rgba(200,200,200);
 }

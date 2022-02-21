@@ -11,7 +11,7 @@ function Form (props: any) {
         event.preventDefault()
         await router.push({
             pathname: '/search',
-            query: {q: event.target.elements.search.value, length: 16, index: "se14", pagination: 0, lang: "en"}
+            query: {q: event.target.elements.search.value, length: 16, index: "se14", pagination: "1", lang: "en"}
             },
         )
     }
@@ -31,7 +31,7 @@ function Form (props: any) {
         <div className={styles.search}>
             <form className={styles.form} onSubmit={submitSearch}>
                 <input id="search" name="search" placeholder="Search..." required={true} autoComplete={"off"} value={userQ} onChange={onInputChng} onFocus={onInputFocus}/>
-                <button type="submit"><Image src="/magnifying_glass.svg" alt="search" width={24} height={24}/></button>
+                <button type="submit"><Image src="/magnifying_glass.svg" alt="search" width={19} height={19}/></button>
             </form>
             {/*<Suggester data={props.data}/>*/}
         </div>

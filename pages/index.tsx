@@ -10,14 +10,14 @@ function Home() {
 
     const suggests = [
         {query: "iservery"},
-        {query: "grussmann"},
-        {query: "why do i pee white"},
-        {query: "mr hands"},
+        {query: "welcome"},
+        {query: "ts vs js"},
+        {query: "nextjs docs"},
         {query: "skolaonline"},
         {query: "velky krtkus"},
-        {query: "okkr"},
-        {query: "how to seduce a woman"},
-        {query: "rule34"},
+        {query: "youtube"},
+        {query: "how to center a div"},
+        {query: "nfs neni need for speed"},
         {query: "what is kvadrant"}
     ]
 

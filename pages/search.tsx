@@ -5,6 +5,7 @@ import Result from "../components/result";
 import Form from "../components/form";
 import React, { useState } from 'react';
 import Hint from "../components/hint";
+import Footer from "../components/footer"
 
 function Search(data: any){
     // On start request data from Filip
@@ -17,19 +18,19 @@ function Search(data: any){
 
     const results = data.data.fulltext.results
 
-    //const [hints, chHints] = useState(data.data.hints.results)
+    const [hints, chHints] = useState(data.data.hints.results)
 
     // const hints = data.data.fulltext.hints
 
     const suggests = [
         {query: "iservery"},
-        {query: "grussmann"},
-        {query: "why do i pee white"},
-        {query: "mr hands"},
+        {query: "welcome"},
+        {query: "ts vs js"},
+        {query: "nextjs docs"},
         {query: "skolaonline"},
         {query: "velky krtkus"},
-        {query: "okkr"},
-        {query: "how to seduce a woman"},
+        {query: "youtube"},
+        {query: "how to center a div"},
         {query: "nfs neni need for speed"},
         {query: "what is kvadrant"}
     ]
@@ -50,10 +51,11 @@ function Search(data: any){
                         {results.map((element: any, i:number) => {return(<Result data={element} key={i}/>)})}
                     </div>
                     <div className={styles.hints}>
-                        {/*{hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)})}*/}
+                        {hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)})}
                     </div>
                 </div>
             </main>
+            <Footer data={query}/>
         </div>
     )
 }
@@ -68,6 +70,36 @@ export async function getServerSideProps(context: any) {
      const data = {
         fulltext: {
             results: [
+                {
+                    url: "https://github.com",
+                    title: "GitHub: Where the world builds software · GitHub",
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                },
+                {
+                    url: "https://stokys.github.io/PVY_Ukol_08_JS_Games/",
+                    title: "The Ultimate Game Bundle - GitHub Pages",
+                    description: "Hi, Have you ever wanted to kill some time? Or maybe just have some fun and play videogames? Well, you're in the right place!"
+                },
+                {
+                    url: "https://github.com",
+                    title: "GitHub: Where the world builds software · GitHub",
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                },
+                {
+                    url: "https://github.com",
+                    title: "GitHub: Where the world builds software · GitHub",
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                },
+                {
+                    url: "https://github.com",
+                    title: "GitHub: Where the world builds software · GitHub",
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                },
+                {
+                    url: "https://github.com",
+                    title: "GitHub: Where the world builds software · GitHub",
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
@@ -131,9 +163,8 @@ export async function getServerSideProps(context: any) {
                 },
                 {
                     title: "343 Industries",
-                    qdesc: "Video game industry company",
-                    website: "https://www.343industries.com/",
-                    website_cut: "343industries.com",
+                    category: "Video game industry company",
+                    web: "https://www.343industries.com/",
                     description: "343 Industries is an American video game developer located in Redmond, Washington, part of Xbox Game Studios. Headed by Bonnie Ross, the studio is responsible for the Halo series of military science fiction games, originally created and produced by Bungie, and is the developer of the Slipspace Engine.",
                     wiki: "https://en.wikipedia.org/wiki/343_Industries"
                 }
@@ -141,17 +172,31 @@ export async function getServerSideProps(context: any) {
         }
     }
 
+    // let tempResults = data.fulltext.results
+    // for (let i = 0; i < tempResults.length; i++){
+    //     if (tempResults[i].title.length > 40){
+    //         let temp = tempResults[i].title.substr(0, 40).split(' ')
+    //         temp.splice(-1)
+    //         tempResults[i].title = `${temp.join(' ')} ...`
+    //     }
+    // }
 
-    let tempResults = data.fulltext.results
-    for (let i = 0; i < tempResults.length; i++){
-        if (tempResults[i].title.length > 50){
-            let temp = tempResults[i].title.substr(0, 50).split(' ')
-            temp.splice(-1)
-            tempResults[i].title = `${temp.join(' ')} ...`
+    for (let i = 0; i < data.fulltext.results.length; i++){
+        let sliced = data.fulltext.results[i].url.split('/')
+        let temp = `${sliced[0]}//${sliced[2]}`
+        for (let j = 3; j < sliced.length - 1; j++) {
+            temp += ` > ${sliced[j]}`
         }
+        Object.assign(data.fulltext.results[i], {url_cut: temp})
     }
 
-    data.fulltext.results = tempResults
+    for (let i = 0; i < data.hints.results.length; i++){
+        let temp = data.hints.results[i].web.split('/')
+        Object.assign(data.hints.results[i], {website_cut: temp[2]})
+
+    }
+
+    // data.fulltext.results = tempResults
 
     return { props: { data } }
 }

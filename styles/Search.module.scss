@@ -8,7 +8,6 @@
 .form_container {
   z-index: 100;
   background-color: white;
-  position: sticky;
   top: 0;
   height: fit-content;
   display: flex;
@@ -16,6 +15,7 @@
   align-items: center;
   border-bottom: 1px solid rgb(220, 220, 220);
   box-shadow: 5px 5px 14px 5px rgba(0,0,0,0.033);
+  position: sticky;
 }
 
 .grid_container {
@@ -26,35 +26,36 @@
 
 .results {
   width: 100%;
+  min-width: 40em;
   display: grid;
   grid-row-gap: 15px;
-  padding: 50px 0px;
+  padding: 50px 0;
 }
 
 .hints {
   height: fit-content;
   width: 100%;
   display: grid;
+  min-width: 25em;
   grid-row-gap: 40px;
   padding: 50px 0px;
   transition: 1s grid-row-gap;
 }
 
-@media only screen and (max-width: 50em){
-  .results {
-    padding: 20px 0px;
-    grid-row-gap: 15px;
-  }
+@media only screen and (max-width: 65em){
   .grid_container {
     grid-template-columns: 1fr;
   }
   .results{
+    min-width: 0;
+    padding: 20px 10px;
     grid-row: 2;
     grid-row-gap: 10px;
     justify-content: center;
   }
   .hints{
-    padding: 10px;
+    min-width: 0;
+    padding: 10px 10px;
     grid-row: 1;
     grid-row-gap: 10px;
     justify-content: center;
