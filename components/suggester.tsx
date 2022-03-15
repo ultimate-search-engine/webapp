@@ -1,40 +1,23 @@
 import styles from "../styles/Suggester.module.scss"
-import Link from "next/link"
+import {useRouter} from "next/router";
 
-function Suggester(props: any) {
+function Suggester(props: { data: { element: string, state: any } }) {
+
+    const router = useRouter()
+
+    const pushSuggest = async (e: any) => {
+        e.preventDefault()
+        console.log("hey ", props.data.element)
+        props.data.state(props.data.element)
+        await router.push({
+                pathname: '/search',
+                query: {q: props.data.element, length: 16, pagination: "0"}
+            },
+        )
+    }
+
     return (
-        <div className={styles.suggest_container}>
-            <Link href={"search/?q=" + props.data[0].query}>
-                <p className={styles.result_h}>{props.data[0].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[1].query}>
-                <p className={styles.result_h}>{props.data[1].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[2].query}>
-                <p className={styles.result_h}>{props.data[2].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[3].query}>
-                <p className={styles.result_h}>{props.data[3].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[4].query}>
-                <p className={styles.result_h}>{props.data[4].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[5].query}>
-                <p className={styles.result_h}>{props.data[5].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[6].query}>
-                <p className={styles.result_h}>{props.data[6].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[7].query}>
-                <p className={styles.result_h}>{props.data[7].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[8].query}>
-                <p className={styles.result_h}>{props.data[8].query}</p>
-            </Link>
-            <Link href={"search/?q=" + props.data[9].query}>
-                <p className={styles.result_h}>{props.data[9].query}</p>
-            </Link>
-        </div>
+        <p className={styles.link} onClick={pushSuggest}>{props.data.element}</p>
     )
 }
 

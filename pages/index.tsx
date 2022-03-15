@@ -8,19 +8,6 @@ import Form from "../components/form";
 
 function Home() {
 
-    const suggests = [
-        {query: "iservery"},
-        {query: "welcome"},
-        {query: "ts vs js"},
-        {query: "nextjs docs"},
-        {query: "skolaonline"},
-        {query: "velky krtkus"},
-        {query: "youtube"},
-        {query: "how to center a div"},
-        {query: "nfs neni need for speed"},
-        {query: "what is kvadrant"}
-    ]
-
     return (
         <div className={styles.container}>
               <Head>
@@ -33,7 +20,7 @@ function Home() {
                     <span className={styles.logo}>
                         <Image src="/logo-t.svg" alt="Out logo" width={144} height={32} />
                     </span>
-                    <Form data={suggests}/>
+                    <Form/>
                 </div>
             </main>
         </div>

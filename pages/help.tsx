@@ -21,7 +21,13 @@ function Help() {
                     </div>
                 </div>
                 <div className={styles.content}>
-
+                    <ul>
+                        <li>Progamově</li>
+                        <li>Elegantní</li>
+                        <li>Nezávadný</li>
+                        <li>Intuitivní</li>
+                        <li>Search</li>
+                    </ul>
                 </div>
             </main>
         </div>

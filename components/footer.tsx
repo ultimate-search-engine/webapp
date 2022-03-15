@@ -7,20 +7,15 @@ import Page_link from "./page_link";
 function Footer(props:any){
 
     let queries = []
-    let i = 0;
-    let j = 0;
-
-    do {
-        let temp
-        queries.push(props.data.pagination)
-        temp = parseInt(queries[i]) + (-2 + i + j)
-        if (temp > 0){
-            queries[i] = temp
-            i++
+    for (let i = 0; i < 10; i++) {
+        if (props.data == 0){
+            queries.push(parseInt(props.data) + i)
+        } else if (props.data == 1){
+            queries.push(parseInt(props.data) + i - 1)
         } else {
-            j++
+            queries.push(parseInt(props.data) + i - 2)
         }
-    } while (i < 8 && j < 3)
+    }
 
     return(
         <footer>

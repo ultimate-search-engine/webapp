@@ -7,12 +7,14 @@ function Page_link(props:any){
     const router = useRouter()
     const query = router.query
 
+    console.log(query.pagination, props.data)
+
     return(
         <Link href={{
             pathname:'search',
-            query:{q: query.q, length: query.length, index: query.index, pagination: props.data, lang: query.lang}
+            query:{q: query.q, length: query.length, pagination: (props.data)}
         }}>
-            <p className={query.pagination == props.data ? styles.page_this : styles.page}>{props.data}</p>
+            <p className={query.pagination == (props.data) ? styles.page_this : styles.page}>{props.data + 1}</p>
         </Link>
     )
 }
