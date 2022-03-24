@@ -7,8 +7,6 @@ function Page_link(props:any){
     const router = useRouter()
     const query = router.query
 
-    console.log(query.pagination, props.data)
-
     return(
         <Link href={{
             pathname:'search',

@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import Result from "../components/result";
 import Form from "../components/form";
 import React, {useState} from 'react';
-import Hint from "../components/hint";
+import Settings from "../components/settings";
 import Footer from "../components/footer"
 
 function Search(data: any) {
@@ -13,10 +13,13 @@ function Search(data: any) {
     const query = router.query
 
     const results = data.data.fulltext.results
+    // const results = null
 
     // const [hints, chHints] = useState(data.data.hints.results)
+    // const hints = null
 
     return (
+        <div>
         <div className={styles.container}>
             <Head>
                 <title>ultimEngine - {query.q}</title>
@@ -30,16 +33,16 @@ function Search(data: any) {
             <main className={styles.main}>
                 <div className={styles.grid_container}>
                     <div className={styles.results} id={'results'}>
-                        {results.map((element: any, i: number) => {
-                            return (<Result data={element} key={i}/>)
-                        })}
+                        {results.length ? results.map((element: any, i: number) => {return (<Result data={element} key={i}/>)}) : <p>no bitches?</p>}
                     </div>
                     <div className={styles.hints}>
-                        {/*{hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)})}*/}
+                        {/*{hints ? hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)}) : <p>no maidens?</p>}*/}
                     </div>
                 </div>
             </main>
             <Footer data={query.pagination}/>
+        </div>
+            <Settings/>
         </div>
     )
 }
@@ -50,89 +53,105 @@ export async function getServerSideProps(context: any) {
 
     // const res = await fetch(`http://192.168.1.242:8080${context.resolvedUrl}`)
     // const data = await res.json()
-
+    //
     const data = {
         fulltext: {
             results: [
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://stokys.github.io/PVY_Ukol_08_JS_Games/",
                     title: "The Ultimate Game Bundle - GitHub Pages",
-                    description: "Hi, Have you ever wanted to kill some time? Or maybe just have some fun and play videogames? Well, you're in the right place!"
+                    description: "Hi, Have you ever wanted to kill some time? Or maybe just have some fun and play videogames? Well, you're in the right place!",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "NotCrawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "NotCrawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "NotCrawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "NotCrawled"
                 },
                 {
                     url: "https://github.com",
                     title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects."
+                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    status: "Crawled"
                 }
             ]
         },
@@ -177,7 +196,6 @@ export async function getServerSideProps(context: any) {
     // for (let i = 0; i < data.hints.results.length; i++){
     //     let temp = data.hints.results[i].web.split('/')
     //     Object.assign(data.hints.results[i], {website_cut: temp[2]})
-    //
     // }
 
     return {props: {data}}

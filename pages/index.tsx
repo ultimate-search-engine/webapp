@@ -18,7 +18,7 @@ function Home() {
             <main className={styles.main}>
                 <div className={styles.main_div}>
                     <span className={styles.logo}>
-                        <Image src="/logo-t.svg" alt="Out logo" width={144} height={32} />
+                        <Image src="/logo.svg" alt="Out logo" width={144} height={32} />
                     </span>
                     <Form/>
                 </div>

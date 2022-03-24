@@ -4,8 +4,7 @@ import Image from "next/image";
 import Suggester from "./suggester";
 import React, {useState} from 'react'
 
-function Form(props: any) {
-
+function Form() {
     const router = useRouter()
     const submitSearch = async (event: any) => {
         event.preventDefault()
@@ -16,17 +15,16 @@ function Form(props: any) {
         )
     }
 
-    const [userQ, setUserQ] = useState(router.query.q)
-
-    let suggestsq: string[] = []
+    const [userQ, setUserQ] = useState(router.query.q ? router.query.q : "")
 
     const [suggests, setSuggests] = useState<Array<string>>([])
 
-    const onInputChng = async (event: any) => {
+    let suggests_q: string[] = []
+
+    const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         setUserQ(event.target.value)
-        //send data to Vojta
         if (event.target.value.length > 2) {
-            suggestsq = [
+            suggests_q = [
                 "iservery",
                 "welcome",
                 "ts vs js",
@@ -38,13 +36,37 @@ function Form(props: any) {
                 "what is kvadrant",
                 "how to center a div",
             ]
-            setSuggests(suggestsq)
+            setSuggests(suggests_q)
+        } else {
+            setSuggests([])
+        }
+        changeClass()
+    }
+
+    const onInputFocusOut = async (event: React.FocusEvent<HTMLElement>) => {
+        const activeNode = event.relatedTarget
+        if (activeNode){
+            if (activeNode.className.substring(0, 7) != "Suggest"){
+                setSuggests([])
+            }
         } else {
             setSuggests([])
         }
     }
 
-    const onInputFocusOut = async (event: any) => {
+    const input = React.useRef<HTMLInputElement>(null);
+    React.useEffect(() => {
+        if (input.current) {
+            input.current.focus()
+        }
+    }, []);
+
+    const changeClass = () => {
+        if (input.current && suggests_q.length){
+            input.current.style.borderRadius = "24px 0px 0px"
+        } else if (input.current && !suggests_q.length){
+            input.current.style.borderRadius = "24px 0px 0px 24px"
+        }
     }
 
     return (
@@ -52,15 +74,13 @@ function Form(props: any) {
             <div className={styles.search}>
                 <form className={styles.form} onSubmit={submitSearch}>
                     <input id="search" name="search" placeholder="Search..." required={true} autoComplete={"off"}
-                           value={userQ} onChange={onInputChng} onBlur={onInputFocusOut}/>
+                           value={userQ} onChange={onInputChange} onBlur={onInputFocusOut} ref={input}/>
                     <button type="submit"><Image src="/magnifying_glass.svg" alt="search" width={19} height={19}/>
                     </button>
                 </form>
             </div>
             <div className={styles.suggest_container}>
-                {suggests.map((element, i) => {
-                    return (<Suggester data={{"element": element, "state": setUserQ}} key={i}/>)
-                })}
+                {suggests.map((element, i) => {return (<Suggester data={{"element": element, "state": setUserQ, "input": input, "suggests": setSuggests}} key={i}/>)})}
             </div>
         </>
     )
