@@ -21,6 +21,8 @@ function About() {
                     </div>
                     <h1>About</h1>
                     <div className={styles.content_container}>
+                        <h2>ultimEngine</h2>
+                        <p>ultimEngine is a fully working search engine with its front-end written in TypeScript in the Next.js framework and back-end written mainly in Kotlin</p>
                         <h2>Our Team</h2>
                         <div className={styles.image_section}>
                             <div className={styles.image_group}>
@@ -35,6 +37,18 @@ function About() {
                                 <Image className={styles.image_img} alt={"Vojtěch Binar"} src={"/binarv.jpg"} layout={"responsive"} width={1} height={1}/>
                                 <p><b>Vojtěch Binar</b><br/>Back-end developer</p>
                             </div>
+                            {/*<div className={styles.image_group}>*/}
+                            {/*    <Image className={styles.image_img} alt={"David Stoček"} src={"/rom.png"} layout={"responsive"} width={1} height={1}/>*/}
+                            {/*    <p><b>David Stoček</b><br/>Great romantic<br/></p>*/}
+                            {/*</div>*/}
+                            {/*<div className={styles.image_group}>*/}
+                            {/*    <Image className={styles.image_img} alt={"David Stoček"} src={"/alc.png"} layout={"responsive"} width={1} height={1}/>*/}
+                            {/*    <p><b>David Stoček</b><br/>Alcoholic<br/>Bringer of drinks</p>*/}
+                            {/*</div>*/}
+                            {/*<div className={styles.image_group}>*/}
+                            {/*    <Image className={styles.image_img} alt={"David Stoček"} src={"/gay.png"} layout={"responsive"} width={1} height={1}/>*/}
+                            {/*    <p><b>David Stoczek</b><br/>Gay marriage supporter<br/></p>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>
