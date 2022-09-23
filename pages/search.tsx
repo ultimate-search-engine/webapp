@@ -6,6 +6,7 @@ import Form from "../components/form";
 import React, {useState} from 'react';
 import Settings from "../components/settings";
 import Footer from "../components/footer"
+import Image from "next/image";
 
 function Search(data: any) {
 
@@ -28,6 +29,9 @@ function Search(data: any) {
             </Head>
             <div className={styles.form_container}>
                 {/*<Form data={suggests}/>*/}
+                <span className={styles.logo}>
+                    <Image src="/logo.svg" alt="Out logo" width={144} height={19} />
+                </span>
                 <Form/>
             </div>
             <main className={styles.main}>
@@ -70,52 +74,52 @@ export async function getServerSideProps(context: any) {
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    url: "https://www.youtube.com/watch?v=Sklc_fQBmcs",
+                    title: "Next.js in 100 Seconds // Plus Full Beginner's Tutorial - YouTube",
+                    description: "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
-                    status: "NotCrawled"
-                },
-                {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    url: "https://www.seznam.cz/",
+                    title: "Seznam – najdu tam, co neznám",
+                    description: "Nejnavštěvovanější český internetový portál nabízející vyhledávač, e-mail, aktuální zprávy, předpověď počasí a odkazy, které se mohou hodit.",
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    url: "https://stackoverflow.com/questions/19544452/remove-last-item-from-array",
+                    title: "javascript - Remove last item from array - Stack Overflow",
+                    description: "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    url: "https://www.sspu-opava.cz/cs/",
+                    title: "SŠPU Opava - úvodní stránka",
+                    description: "Domovská stránka Střední školy průmyslové a umělecké v Opavě, přehled oborů, rozcestník, aktuální informace",
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
+                    url: "https://music.youtube.com/",
+                    title: "YouTube Music",
+                    description: "A new music service with official albums, singles, videos, remixes, live performances and more for Android, iOS and desktop. It's all here.",
                     status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
-                    status: "NotCrawled"
+                    url: "https://polyhaven.com/a/rock_wall",
+                    title: "Rock Wall Texture • Poly Haven",
+                    description: "Download this free Texture from Poly Haven",
+                    status: "Crawled"
                 },
                 {
-                    url: "https://github.com",
-                    title: "GitHub: Where the world builds software · GitHub",
-                    description: "GitHub is where people build software. More than 73 million people use GitHub to discover, fork, and contribute to over 200 million projects.",
-                    status: "NotCrawled"
+                    url: "https://www.geoguessr.com/play-with-friends",
+                    title: "Play with friends - GeoGuessr",
+                    description: "GeoGuessr is a geography game which takes you on a journey around the world and challenges your ability to recognize your surroundings.",
+                    status: "Crawled"
+                },
+                {
+                    url: "https://tetr.io/",
+                    title: "TETR.IO",
+                    description: "Puzzle together in this modern yet familiar online stacker. Play against friends and foes all over the world, or claim a spot on the leaderboards - the stacker future is yours!",
+                    status: "Crawled"
                 },
                 {
                     url: "https://github.com",
@@ -177,8 +181,8 @@ export async function getServerSideProps(context: any) {
 
     let tempResults = data.fulltext.results
     for (let i = 0; i < tempResults.length; i++){
-        if (tempResults[i].title.length > 40){
-            let temp = tempResults[i].title.substr(0, 40).split(' ')
+        if (tempResults[i].title.length > 60){
+            let temp = tempResults[i].title.substr(0, 60).split(' ')
             temp.splice(-1)
             tempResults[i].title = `${temp.join(' ')} ...`
         }
@@ -187,6 +191,9 @@ export async function getServerSideProps(context: any) {
     for (let i = 0; i < data.fulltext.results.length; i++) {
         let sliced = data.fulltext.results[i].url.split('/')
         let temp = `${sliced[0]}//${sliced[2]}`
+        if (sliced[sliced.length-1] == ''){
+            sliced.pop()
+        }
         for (let j = 3; j < sliced.length; j++) {
             temp += ` > ${sliced[j]}`
         }

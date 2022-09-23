@@ -9,14 +9,23 @@
   z-index: 100;
   background-color: rgba(255,255,255,1);
   top: 0;
-  height: fit-content;
+  height: 6ch;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid rgb(220, 220, 220);
   box-shadow: 5px 5px 14px 5px rgba(0,0,0,0.033);
   position: sticky;
-  flex-direction: column;
+  //flex-direction: column;
+  width: 100%;
+}
+
+.logo{
+  height: 100%;
+  padding: 0 25px;
+  margin: 0;
+  //float: left;
+  display: flex;
 }
 
 .grid_container {
