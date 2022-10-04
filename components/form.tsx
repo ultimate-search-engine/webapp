@@ -48,9 +48,11 @@ function Form() {
         if (activeNode) {
             if (activeNode.className.substring(0, 7) != "Suggest") {
                 setSuggests([])
+                changeClass()
             }
         } else {
             setSuggests([])
+            changeClass()
         }
     }
 

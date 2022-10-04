@@ -7,6 +7,7 @@ import React, {useState} from 'react';
 import Settings from "../components/settings";
 import Footer from "../components/footer"
 import Image from "next/image";
+import Hint from '../components/hint'
 
 function Search(data: any) {
 
@@ -16,7 +17,7 @@ function Search(data: any) {
     const results = data.data.fulltext.results
     // const results = null
 
-    // const [hints, chHints] = useState(data.data.hints.results)
+    const [hints, chHints] = useState(data.data.hints.results)
     // const hints = null
 
     return (
@@ -29,9 +30,11 @@ function Search(data: any) {
             </Head>
             <div className={styles.form_container}>
                 {/*<Form data={suggests}/>*/}
-                <span className={styles.logo}>
-                    <Image src="/logo.svg" alt="Out logo" width={144} height={19} />
-                </span>
+                <a href={'/'}>
+                    <span className={styles.logo}>
+                        <Image src="/logo.svg" alt="Out logo" width={144} height={32} />
+                    </span>
+                </a>
                 <Form/>
             </div>
             <main className={styles.main}>
@@ -40,7 +43,7 @@ function Search(data: any) {
                         {results.length ? results.map((element: any, i: number) => {return (<Result data={element} key={i}/>)}) : <p>no bitches?</p>}
                     </div>
                     <div className={styles.hints}>
-                        {/*{hints ? hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)}) : <p>no maidens?</p>}*/}
+                        {hints ? hints.map((element: any, i:number) => {return(<Hint data={element} key={i}/>)}) : <p>no maidens?</p>}
                     </div>
                 </div>
             </main>

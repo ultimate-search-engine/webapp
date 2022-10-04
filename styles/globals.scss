@@ -14,6 +14,8 @@
   background: #555;
 }
 
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 html,
 body {
   width: 100%;
@@ -22,7 +24,7 @@ body {
   //font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     //Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   //overflow-x: hidden;
-  font-family: Helvetica;
+  //font-family: Helvetica;
 }
 
 a {
@@ -31,6 +33,7 @@ a {
 }
 
 * {
+  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
   //overflow-x: hidden;
   outline: none !important;
