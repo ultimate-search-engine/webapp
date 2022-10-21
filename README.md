@@ -1,21 +1,50 @@
-# Search Engine - Front End
-*Dev*: ***David Stoček***
+# Ultimate Search Engine
+#### ***Front-End Webová aplikace***
 
-### Install dependencies
+---
+
+### Instalace
+
+#### Instalace závislostí
+
+Před prvním spuštěním serveru je zapotřebí stáhnout všechny balíčky
 
 ```
 npm i
 ```
 
-### How to run
+#### Spuštění aplikace
+
+Jako vývojář
+
+```
+npm run dev
+```
+
+Nebo aplikaci prvě postavíme
+
+```
+npm run build
+```
 
 ```
 npm run start
 ```
 
-### How to run Docker
+---
+
+### Docker
+
+#### Jak aplikaci spustit v Dockeru
+
+Prvně Docker image vytvoříme
 
 ```
 docker build -t se-front_end .
-docker run -p 3000:3000 se-front_end
+```
+
+A poté spustíme
+
+```
+docker run -p 80:80 se-front_end
 ```

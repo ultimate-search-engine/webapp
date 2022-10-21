@@ -23,8 +23,9 @@
   flex-direction: column;
 }
 
-.logo {;
-  //padding-left: 30%;
+@media only screen and (max-width: 65em) {
+  .main_div {
+    justify-content: start;
+    margin-top: 70%;
+  }
 }
-
-

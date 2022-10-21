@@ -1,18 +1,17 @@
-.hint_div{
+.hint_div {
   margin: 0px 0.5em;
   background-color: white;
-  // justify-self: stretch;
-  border: 1px solid rgba(20,20,20,0.05);
+  border: 1px solid rgba(20, 20, 20, 0.05);
   border-radius: 10px;
   padding: 10px 20px;
-  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.025);
+  box-shadow: 3px 3px 14px 10px rgba(0, 0, 0, 0.025);
   min-width: 24em;
   width: 24em;
   height: fit-content;
 }
 
-.hint_h{
-  color: rgb(20,20,20);
+.hint_h {
+  color: rgb(20, 20, 20);
   margin: 0px;
   font-size: 20px;
   cursor: pointer;
@@ -20,7 +19,7 @@
   width: fit-content;
 }
 
-.hint_qdesc{
+.hint_qdesc {
   margin-top: 0px;
   font-size: 12px;
   cursor: pointer;
@@ -29,17 +28,17 @@
   width: fit-content;
 }
 
-.hint_link{
+.hint_link {
   margin: 0px;
   padding: 5px;
   font-size: 0.9em;
-  color: rgb(30,30,30)
+  color: rgb(30, 30, 30)
 }
 
 .hint_desc {
   font-size: 12px;
   font-weight: 300;
-  color: rgb(80,80,80)
+  color: rgb(80, 80, 80)
 }
 
 @media only screen and (max-width: 65em) {
@@ -51,9 +50,7 @@
   }
 }
 
-
-
-hr.thin{
+hr.thin {
   border: 0;
-  border-top: 1px solid rgba(200,200,200);
+  border-top: 1px solid rgba(200, 200, 200);
 }

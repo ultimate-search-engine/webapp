@@ -2,7 +2,7 @@ import styles from "../styles/Suggester.module.scss"
 import {useRouter} from "next/router";
 import React from "react";
 
-function Suggester(props: { data: { element: string, state: React.Dispatch<React.SetStateAction<string | string[]>>, input: React.RefObject<HTMLInputElement>, suggests: React.Dispatch<React.SetStateAction<string[]>>} }) {
+function Suggester(props: { data: { element: string, state: React.Dispatch<React.SetStateAction<string | string[]>>, input: React.RefObject<HTMLInputElement>, suggests: React.Dispatch<React.SetStateAction<string[]>> } }) {
 
     const router = useRouter()
 

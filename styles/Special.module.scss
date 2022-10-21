@@ -1,0 +1,49 @@
+.special_div {
+    margin: 0px 0.5em;
+    background-color: white;
+    border: 1px solid rgba(20, 20, 20, 0.05);
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 14px 10px rgba(0, 0, 0, 0.025);
+    min-width: 24em;
+    width: 30em;
+    height: fit-content;
+}
+
+.special_title{
+  font-size: 20px;
+  color: rgb(40, 40, 40);
+  font-weight: 500;
+}
+
+.special_desc{
+  padding: 5px;
+  font-weight: 100;
+  font-size: 13px;
+  text-align: left;
+  color: rgb(20,20,20)
+}
+
+.special_link{
+  font-size: 12px;
+  color: blue;
+  float: right;
+}
+
+.special_subs{
+  ul{
+    padding: 0;
+    list-style-type: none;
+    li{
+      padding: 7px;
+      border-bottom: 1px solid grey;
+      border-radius: 2px;
+      font-size: 14px;
+      color: rgb(20,20,20)
+    }
+  }
+}
+
+.special_genres{
+  font-size: 11px
+}

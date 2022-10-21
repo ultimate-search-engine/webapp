@@ -23,6 +23,9 @@ function Form() {
 
     const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         setUserQ(event.target.value)
+        // const res = await fetch(`http://10.3.106.157:8000/suggest/${userQ}`)
+        // const data = await res.json()
+        // console.log(data)
         if (event.target.value.length > 2) {
             suggests_q = [
                 "iservery",
@@ -93,7 +96,6 @@ function Form() {
                     })}
                 </div>
             </div>
-
         </>
     )
 }

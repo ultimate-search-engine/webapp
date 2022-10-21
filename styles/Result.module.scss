@@ -1,39 +1,36 @@
-.result_div{
+.result_div {
   margin: 0 0.5em;
   background-color: white;
-  //justify-self: stretch;
-  border: 1px solid rgba(20,20,20,0.05);
-  border-left: 2px solid rgba(20,20,20,.1);
+  border: 1px solid rgba(20, 20, 20, 0.05);
+  border-left: 2px solid rgba(20, 20, 20, .1);
   border-radius: 10px;
   padding: 10px 20px;
-  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.01);
+  box-shadow: 3px 3px 14px 10px rgba(0, 0, 0, 0.01);
   transition: box-shadow 0.5s;
-  width: calc(100/3*2%);
+  width: calc(100 / 3 * 2%);
   max-width: 75ch;
   min-width: 39em;
-  justify-self:flex-end;
+  justify-self: flex-end;
 }
 
-.result_div:hover{
-  box-shadow: 3px 3px 14px 10px rgba(0,0,0,0.05);
+.result_div:hover {
+  box-shadow: 3px 3px 14px 10px rgba(0, 0, 0, 0.05);
 }
 
-.result_h{
-  color: rgb(20,20,20);
+.result_h {
+  color: rgb(20, 20, 20);
   margin: 0;
   font-size: 20px;
   cursor: pointer;
   width: fit-content;
   font-weight: 500;
-  //text-emphasis: #0064ff;
-  //text-align: justify;
 }
 
-.result_h:hover{
+.result_h:hover {
   text-decoration: underline;
 }
 
-.result_l{
+.result_l {
   margin-top: 0;
   margin-bottom: 2px;
   font-size: 12px;
@@ -43,22 +40,22 @@
   width: fit-content;
 }
 
-.result_d{;
+.result_d {;
   margin: 0;
   padding: 5px;
   font-size: 12px;
-  color: rgb(80,80,80);
+  color: rgb(80, 80, 80);
   font-weight: 300;
 }
 
-@media only screen and (max-width: 65em){
-  .result_div{
+@media only screen and (max-width: 65em) {
+  .result_div {
     width: 100%;
     max-width: 40em;
     min-width: 0;
     margin: 0;
   }
-  .result_h:hover{
+  .result_h:hover {
     text-decoration: none;
   }
 }

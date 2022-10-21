@@ -1,22 +1,21 @@
-.page{
+.page {
   font-size: 18px;
   font-weight: 500;
-  color: rgb(20,20,20);
+  color: rgb(20, 20, 20);
   width: fit-content;
   margin: 20px 5px;
   padding: 0;
   cursor: pointer;
-  //text-decoration: underline;
 }
 
-.page:hover{
+.page:hover {
   text-decoration: underline;
 }
 
-.page_this{
+.page_this {
   font-size: 20px;
   font-weight: 600;
-  color: rgb(60,60,60);
+  color: rgb(60, 60, 60);
   width: fit-content;
   margin: 20px 5px;
   padding: 0;
