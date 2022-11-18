@@ -26,6 +26,27 @@ function Form() {
         // const res = await fetch(`http://10.3.106.157:8000/suggest/${userQ}`)
         // const data = await res.json()
         // console.log(data)
+//        const res = await fetch('http://localhost:1216/request?' + new URLSearchParams({
+//            q: event.target.value
+//        }))
+//        const data = await res.json()
+//        console.log(data)
+
+//        let theme = document.querySelector(':root')
+//
+//        if (event.target.value.search("gay") != -1){
+//            if (theme){
+//                theme.style.setProperty('--var_background-color', `rgba(${Math.random() * (255)},${Math.random() * (255)},${Math.random() * (255)}, 1)`)
+//            }
+//        } else {
+//            if (theme){
+//                theme.style.setProperty('--var_background-color', `rgba(255,255,255,1)`)
+//            }
+//        }
+
+
+
+
         if (event.target.value.length > 2) {
             suggests_q = [
                 "iservery",
@@ -84,7 +105,7 @@ function Form() {
                 <form className={styles.form} onSubmit={submitSearch}>
                     <input id="search" name="search" placeholder="Search..." required={true} autoComplete={"off"}
                            value={userQ} onChange={onInputChange} onBlur={onInputFocusOut}/>
-                    <button id="submit" type="submit"><Image src="/magnifying_glass.svg" alt="search" width={19}
+                    <button id="submit" type="submit"><Image className={styles.svg} src="/magnifying_glass.svg" alt="search" width={19}
                                                              height={19}/>
                     </button>
                 </form>

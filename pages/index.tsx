@@ -2,8 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Form from "../components/form";
+import {theme_changer} from "../scripts/theme_changer";
 
 function Home() {
+
+    if (typeof window !== 'undefined'){
+        let temp = localStorage.getItem('theme')
+        // @ts-ignore
+        theme_changer(temp)
+    }
 
     return (
         <div className={styles.container}>
@@ -15,7 +22,7 @@ function Home() {
             <main className={styles.main}>
                 <div className={styles.main_div}>
                     <span className={styles.logo}>
-                        <Image src="/logo.svg" alt="Out logo" width={144} height={32}/>
+                        <Image className={styles.svg} src="/logo.svg" alt="Out logo" width={144} height={32}/>
                     </span>
                     <Form/>
                 </div>

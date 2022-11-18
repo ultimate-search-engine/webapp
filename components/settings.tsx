@@ -15,7 +15,7 @@ function Settings(props: any) {
 
     return (
         <div className={styles.button}>
-            <Image src={"/gear.svg"} width={32} height={32} onClick={onClickedButton}/>
+            <Image src={"/gear.svg"} width={32} height={32} onClick={onClickedButton} className={styles.svg}/>
         </div>
     )
 }

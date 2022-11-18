@@ -1,3 +1,4 @@
+import '../styles/design_tokens.scss'
 import '../styles/globals.scss'
 import type {AppProps} from 'next/app'
 

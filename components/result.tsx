@@ -3,6 +3,7 @@ import styles from "../styles/Result.module.scss"
 function Result(props: any) {
     return (
         <div className={styles.result_div}>
+
             <a href={props.data.url}>
                 <h1 className={styles.result_h}
                     style={props.data.description ? {} : {color: "grey"}}>{props.data.title}</h1>

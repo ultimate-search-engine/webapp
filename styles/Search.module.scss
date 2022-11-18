@@ -7,13 +7,14 @@
 
 .form_container {
   z-index: 100;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--theme_header_bg);
+  transition: background-color .5s;
   top: 0;
   height: 6ch;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1px solid rgb(220, 220, 220);
+  border-bottom: 2px solid var(--theme_border_big);
   box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.033);
   position: sticky;
   width: 100%;
@@ -30,6 +31,10 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.svg{
+    filter: var(--theme_svg);
 }
 
 .results {

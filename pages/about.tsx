@@ -1,8 +1,16 @@
 import styles from "../styles/About.module.scss";
 import Head from "next/head";
 import Image from "next/image"
+import {theme_changer} from "../scripts/theme_changer";
 
 function About() {
+
+    if (typeof window !== 'undefined'){
+        let temp = localStorage.getItem('theme')
+        // @ts-ignore
+        theme_changer(temp)
+    }
+
     return (
         <div className={styles.container}>
             <Head>
@@ -14,9 +22,102 @@ function About() {
                 <div className={styles.content}>
                     <h1>About</h1>
                     <div className={styles.content_container}>
+                        <h2>Themes</h2>
+                        <div className={styles.theme_selector}>
+                            <div className={`${styles.theme_div} ${styles.light}`} onClick={function(){theme_changer("light")}}>
+                                <div className={`${styles.theme_header} ${styles.light}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.light}`}>
+                                    <div className={`${styles.theme_results} ${styles.light}`}>
+                                        <div className={`${styles.theme_result} ${styles.light}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.light}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.light}`}>
+                                        <div className={`${styles.theme_special} ${styles.light}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${styles.theme_div} ${styles.grey}`} onClick={function(){theme_changer("grey")}}>
+                                <div className={`${styles.theme_header} ${styles.grey}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.grey}`}>
+                                    <div className={`${styles.theme_results} ${styles.grey}`}>
+                                        <div className={`${styles.theme_result} ${styles.grey}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.grey}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.grey}`}>
+                                        <div className={`${styles.theme_special} ${styles.grey}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${styles.theme_div} ${styles.dark}`} onClick={function(){theme_changer("dark")}}>
+                                <div className={`${styles.theme_header} ${styles.dark}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.dark}`}>
+                                    <div className={`${styles.theme_results} ${styles.dark}`}>
+                                        <div className={`${styles.theme_result} ${styles.dark}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.dark}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.dark}`}>
+                                        <div className={`${styles.theme_special} ${styles.dark}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.content_container}>
                         <h2>ultimEngine</h2>
-                        <p>ultimEngine is a fully working search engine with its front-end written in TypeScript in the
-                            Next.js framework and back-end written mainly in Kotlin</p>
+                        <p className={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim facilisis gravida neque
+                            convallis a cras semper. Egestas sed tempus urna et pharetra pharetra massa. Sit amet purus
+                            gravida quis blandit turpis cursus in hac. Mauris in aliquam sem fringilla. Enim nunc
+                            faucibus a pellentesque sit amet porttitor. In nibh mauris cursus mattis molestie a iaculis
+                            at erat. Egestas sed tempus urna et pharetra. Ullamcorper malesuada proin libero nunc
+                            consequat interdum varius. Orci porta non pulvinar neque laoreet suspendisse interdum. Nulla
+                            facilisi cras fermentum odio eu feugiat pretium. Et tortor at risus viverra adipiscing at.
+                            Vel pretium lectus quam id leo in vitae.</p>
+
+                        <p className={styles.description}>Dui sapien eget mi proin sed libero enim. Porttitor rhoncus
+                            dolor purus non enim praesent
+                            elementum facilisis. Arcu cursus vitae congue mauris rhoncus aenean vel. Viverra nibh cras
+                            pulvinar mattis. Fusce id velit ut tortor pretium. Aliquet risus feugiat in ante metus
+                            dictum at tempor. Velit egestas dui id ornare arcu odio ut. Dolor purus non enim praesent
+                            elementum facilisis. Sit amet aliquam id diam maecenas ultricies mi eget mauris. Vitae
+                            tempus quam pellentesque nec. Dolor sed viverra ipsum nunc aliquet. Ac feugiat sed lectus
+                            vestibulum.</p>
+
+                        <p className={styles.description}>Massa enim nec dui nunc mattis. Imperdiet dui accumsan sit
+                            amet nulla. Pulvinar etiam non
+                            quam lacus suspendisse faucibus interdum posuere lorem. Mauris cursus mattis molestie a
+                            iaculis at erat pellentesque. Lobortis feugiat vivamus at augue eget arcu dictum. Commodo
+                            elit at imperdiet dui accumsan sit amet. Rhoncus est pellentesque elit ullamcorper dignissim
+                            cras tincidunt lobortis. Et malesuada fames ac turpis egestas maecenas. Tristique et egestas
+                            quis ipsum suspendisse ultrices. Blandit volutpat maecenas volutpat blandit aliquam etiam
+                            erat. Dolor sit amet consectetur adipiscing.</p>
+
+                        <p className={styles.description}>Viverra ipsum nunc aliquet bibendum. Non blandit massa enim
+                            nec dui nunc mattis enim. Ut
+                            etiam sit amet nisl purus in mollis nunc sed. Et egestas quis ipsum suspendisse ultrices
+                            gravida dictum. Luctus venenatis lectus magna fringilla urna porttitor. Vitae congue mauris
+                            rhoncus aenean vel elit. Malesuada fames ac turpis egestas integer eget aliquet nibh. Mauris
+                            commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Enim nulla aliquet porttitor
+                            lacus luctus accumsan. Eget aliquet nibh praesent tristique magna sit. Facilisi cras
+                            fermentum odio eu feugiat pretium. Iaculis eu non diam phasellus vestibulum lorem sed. Cras
+                            adipiscing enim eu turpis egestas pretium. Aliquam nulla facilisi cras fermentum odio eu
+                            feugiat pretium. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique.
+                            Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Eleifend mi in nulla posuere
+                            sollicitudin aliquam ultrices sagittis orci. Dignissim cras tincidunt lobortis feugiat
+                            vivamus at. Ac auctor augue mauris augue neque gravida in. Fames ac turpis egestas sed
+                            tempus urna et pharetra.</p>
+
+                        <p className={styles.description}> Ullamcorper a lacus vestibulum sed arcu non odio euismod.
+                            Turpis egestas sed tempus urna et
+                            pharetra pharetra massa. Massa tempor nec feugiat nisl pretium fusce id. Et malesuada fames
+                            ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at ultrices mi. Elementum
+                            nibh tellus molestie nunc non blandit. Sed pulvinar proin gravida hendrerit lectus a. Mauris
+                            vitae ultricies leo integer malesuada nunc vel risus commodo. Congue nisi vitae suscipit
+                            tellus mauris. Phasellus faucibus scelerisque eleifend donec pretium. Sed enim ut sem
+                            viverra aliquet eget sit amet tellus. Elit pellentesque habitant morbi tristique senectus
+                            et. Augue neque gravida in fermentum et sollicitudin ac orci. Nunc scelerisque viverra
+                            mauris in aliquam sem. Nunc sed velit dignissim sodales ut eu sem integer vitae. Ornare arcu
+                            odio ut sem nulla. Dignissim convallis aenean et tortor at risus viverra.</p>
                         <h2>Our Team</h2>
                         <div className={styles.image_section}>
                             <div className={styles.image_group}>

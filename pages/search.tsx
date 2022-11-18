@@ -7,9 +7,17 @@ import React, {useState} from 'react';
 import Footer from "../components/footer"
 import Image from "next/image";
 import {Special_goodreads, Special_wiki} from "../components/special"
+import Settings from "../components/settings";
+import {theme_changer} from "../scripts/theme_changer";
 
 
 function Search(data: any) {
+
+    if (typeof window !== 'undefined'){
+        let temp = localStorage.getItem('theme')
+        // @ts-ignore
+        theme_changer(temp)
+    }
 
     const router = useRouter()
     const query = router.query
@@ -29,12 +37,14 @@ function Search(data: any) {
                 <div className={styles.form_container}>
                     <a href={'/'}>
                     <span className={styles.logo}>
-                        <Image src="/logo.svg" alt="Out logo" width={144} height={32}/>
+                        <Image src="/logo.svg" alt="Out logo" width={144} height={32} className={styles.svg}/>
                     </span>
                     </a>
                     <Form/>
+                    <Settings/>
                 </div>
                 <main className={styles.main}>
+
                     <div className={styles.grid_container}>
                         <div className={styles.results} id={'results'}>
                             {results.length ? results.map((element: any, i: number) => {
@@ -269,7 +279,7 @@ export async function getServerSideProps(context: any) {
     }
 
     for (let i = 0; i < data.fulltext.results.length; i++) {
-        if(data.fulltext.results[i].type == "default"){
+        if (data.fulltext.results[i].type == "default") {
             tempResults.push(data.fulltext.results[i])
             if (tempResults[tempResults.length - 1].title.length > 60) {
                 let temp = tempResults[tempResults.length - 1].title.substr(0, 60).split(' ')
@@ -277,9 +287,10 @@ export async function getServerSideProps(context: any) {
                 tempResults[tempResults.length - 1].title = `${temp.join(' ')} ...`
             }
         } else if (data.fulltext.results[i].type == "wikipedia") {
+            // @ts-ignore
             tempSpecial.wiki.push(data.fulltext.results[i])
-        }
-        else if (data.fulltext.results[i].type == "goodreads") {
+        } else if (data.fulltext.results[i].type == "goodreads") {
+            // @ts-ignore
             tempSpecial.goodreads.push(data.fulltext.results[i])
         }
     }

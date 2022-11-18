@@ -1,7 +1,7 @@
 .page {
   font-size: 18px;
   font-weight: 500;
-  color: rgb(20, 20, 20);
+  color: var(--theme_results_h);
   width: fit-content;
   margin: 20px 5px;
   padding: 0;
@@ -15,7 +15,7 @@
 .page_this {
   font-size: 20px;
   font-weight: 600;
-  color: rgb(60, 60, 60);
+  color: var(--theme_results_l);
   width: fit-content;
   margin: 20px 5px;
   padding: 0;
