@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
-    outputStandalone: false,
+    output: 'standalone'
   },
 }

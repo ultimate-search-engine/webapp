@@ -48,7 +48,6 @@ export function theme_changer(props: any) {
     let temp = eval(`themes.${props}`)
     if (themef) {
         for (const property in temp) {
-            console.log(`${property}: ${temp[property]}`);
             // @ts-ignore
             themef.style.setProperty(`--theme_${property}`, temp[property])
         }

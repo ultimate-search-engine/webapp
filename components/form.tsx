@@ -17,54 +17,47 @@ function Form() {
 
     const [userQ, setUserQ] = useState(router.query.q ? router.query.q : "")
 
-    const [suggests, setSuggests] = useState<Array<string>>([])
+    const [suggests, setSuggests] = useState<any>([])
 
     let suggests_q: string[] = []
 
     const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserQ(event.target.value)
-        // const res = await fetch(`http://10.3.106.157:8000/suggest/${userQ}`)
-        // const data = await res.json()
-        // console.log(data)
-//        const res = await fetch('http://localhost:1216/request?' + new URLSearchParams({
-//            q: event.target.value
-//        }))
-//        const data = await res.json()
-//        console.log(data)
-
-//        let theme = document.querySelector(':root')
-//
-//        if (event.target.value.search("gay") != -1){
-//            if (theme){
-//                theme.style.setProperty('--var_background-color', `rgba(${Math.random() * (255)},${Math.random() * (255)},${Math.random() * (255)}, 1)`)
-//            }
-//        } else {
-//            if (theme){
-//                theme.style.setProperty('--var_background-color', `rgba(255,255,255,1)`)
-//            }
-//        }
-
-
-
-
-        if (event.target.value.length > 2) {
-            suggests_q = [
-                "iservery",
-                "welcome",
-                "ts vs js",
-                "nextjs docs",
-                "skolaonline",
-                "velky krtkus",
-                "why not to use any in ts",
-                "nfs neni need for speed",
-                "what is kvadrant",
-                "how to center a div",
-            ]
-            setSuggests(suggests_q)
-        } else {
-            setSuggests([])
+        try {
+            setUserQ(event.target.value)
+            if (event.target.value.length > 0) {
+                const res = await fetch(`http://${process.env.SUGGESTER_HOST}:${process.env.SUGGESTER_PORT}/suggest/${userQ}`)
+                const data = await res.json()
+                const data_fixed = data.autocomplete.concat(data.next_words)
+                setSuggests(data_fixed)
+            } else {
+                setSuggests([])
+            }
+            changeClass()
         }
-        changeClass()
+        catch{
+            console.log("Couldn't fetch suggests, loading static data")
+            setUserQ(event.target.value)
+            if (event.target.value.length > 0) {
+                const data = {
+                    autocomplete: ["iservery",
+                        "welcome",
+                        "ts vs js",
+                        "nextjs docs",
+                        "skolaonline",],
+                    next_words: ["velky krtkus",
+                        "why not to use any in ts",
+                        "nfs neni need for speed",
+                        "what is kvadrant",
+                        "how to center a div",]
+                }
+                const data_fixed = data.autocomplete.concat(data.next_words)
+                setSuggests(data_fixed)
+            } else {
+                setSuggests([])
+            }
+            changeClass()
+        }
+
     }
 
     const onInputFocusOut = async (event: React.FocusEvent<HTMLElement>) => {
@@ -110,7 +103,7 @@ function Form() {
                     </button>
                 </form>
                 <div className={styles.suggest_container}>
-                    {suggests.map((element, i) => {
+                    {suggests.map((element: any, i: React.Key | null | undefined) => {
                         return (<Suggester
                             data={{"element": element, "state": setUserQ, "input": input, "suggests": setSuggests}}
                             key={i}/>)
