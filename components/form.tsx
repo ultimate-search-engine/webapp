@@ -25,7 +25,18 @@ function Form() {
         try {
             setUserQ(event.target.value)
             if (event.target.value.length > 0) {
-                const res = await fetch(`http://${process.env.SUGGESTER_HOST}:${process.env.SUGGESTER_PORT}/suggest/${userQ}`)
+                let headers = new Headers();
+                headers.append("Content-Type", "application/json");
+                let body= JSON.stringify({
+                    "whole_search": event.target.value,
+                    "last_word": event.target.value.split(" ,")[-1]
+                });
+                const options = {
+                    method: 'POST',
+                    headers: headers,
+                    body: body,
+                };
+                const res = await fetch(`http://${process.env.SUGGESTER_HOST}:${process.env.SUGGESTER_PORT}/suggest`, options)
                 const data = await res.json()
                 const data_fixed = data.autocomplete.concat(data.next_words)
                 setSuggests(data_fixed)

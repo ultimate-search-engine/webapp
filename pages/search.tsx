@@ -71,7 +71,7 @@ export default Search
 
 export async function getServerSideProps(context: any) {
     try{
-        const response = await fetch(`http://${process.env.SM_HOST}:${process.env.SM_PORT}${context.resolvedUrl}`)
+        const response = await fetch(`http://${process.env.SM_HOST}:${process.env.SM_PORT}/${context.resolvedUrl}`)
         const data = await response.json()
         return(format_data(data))
     }
