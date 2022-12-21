@@ -9,6 +9,16 @@ RUN npm install --frozen-lockfile
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+ARG SUGGESTER_HOST=localhost
+ENV NEXT_PUBLIC_SUGGESTER_HOST=${SUGGESTER_HOST}
+ARG SUGGESTER_PORT=8000
+ENV NEXT_PUBLIC_SUGGESTER_PORT=${SUGGESTER_PORT}
+ARG SM_HOST=localhost
+ENV NEXT_PUBLIC_SM_HOST=${SM_HOST}
+ARG SM_PORT=8081
+ENV NEXT_PUBLIC_SM_PORT=${SM_PORT}
+ARG TEST=hello
+ENV NEXT_PUBLIC_TEST=${TEST}
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
@@ -20,6 +30,7 @@ ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+#COPY --from=builder /app/.env.example ./.env.local
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json

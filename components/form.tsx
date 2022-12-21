@@ -3,6 +3,8 @@ import {useRouter} from "next/router";
 import Image from "next/image";
 import Suggester from "./suggester";
 import React, {useState} from 'react'
+// import getConfig from 'next/config'
+// const { publicRuntimeConfig } = getConfig()
 
 function Form() {
     const router = useRouter()
@@ -27,16 +29,19 @@ function Form() {
             if (event.target.value.length > 0) {
                 let headers = new Headers();
                 headers.append("Content-Type", "application/json");
-                let body= JSON.stringify({
-                    "whole_search": event.target.value,
-                    "last_word": event.target.value.split(" ,")[-1]
-                });
+                headers.append("Accept", "application/json");
+                const words = event.target.value.split(/[\s,]+/)
+                const body= JSON.stringify({
+                    whole_search: event.target.value,
+                    last_word: words[words.length - 1]
+                })
                 const options = {
                     method: 'POST',
                     headers: headers,
                     body: body,
                 };
-                const res = await fetch(`http://${process.env.SUGGESTER_HOST}:${process.env.SUGGESTER_PORT}/suggest`, options)
+                console.log(`http://${process.env.NEXT_PUBLIC_SUGGESTER_HOST}:${process.env.NEXT_PUBLIC_SUGGESTER_PORT}/suggest`)
+                const res = await fetch(`http://${process.env.NEXT_PUBLIC_SUGGESTER_HOST}:${process.env.NEXT_PUBLIC_SUGGESTER_PORT}/suggest`, options)
                 const data = await res.json()
                 const data_fixed = data.autocomplete.concat(data.next_words)
                 setSuggests(data_fixed)
@@ -45,7 +50,8 @@ function Form() {
             }
             changeClass()
         }
-        catch{
+        catch(err){
+            console.log(err)
             console.log("Couldn't fetch suggests, loading static data")
             setUserQ(event.target.value)
             if (event.target.value.length > 0) {
