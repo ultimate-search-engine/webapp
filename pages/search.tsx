@@ -9,7 +9,7 @@ import Image from "next/image";
 import {Special_goodreads, Special_wiki} from "../components/special"
 import Settings from "../components/settings";
 import {theme_changer} from "../scripts/theme_changer";
-
+import Calculator from "../components/calculator";
 
 function Search(data: any) {
 
@@ -44,7 +44,6 @@ function Search(data: any) {
                     <Settings/>
                 </div>
                 <main className={styles.main}>
-
                     <div className={styles.grid_container}>
                         <div className={styles.results} id={'results'}>
                             {results.length ? results.map((element: any, i: number) => {
@@ -52,6 +51,7 @@ function Search(data: any) {
                             }) : <p>No results</p>}
                         </div>
                         <div className={styles.special}>
+                            <Calculator/>
                             {special ? special.wiki.map((element: any, i: number) => {
                                 return (<Special_wiki data={element} key={i}/>)
                             }) : <p>No wiki articles</p>}

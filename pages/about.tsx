@@ -20,7 +20,6 @@ function About() {
             </Head>
             <main className={styles.main}>
                 <div className={styles.content}>
-                    <h1>About</h1>
                     <div className={styles.content_container}>
                         <h2>Themes</h2>
                         <div className={styles.theme_selector}>
@@ -57,6 +56,42 @@ function About() {
                                     </div>
                                     <div className={`${styles.theme_specials} ${styles.dark}`}>
                                         <div className={`${styles.theme_special} ${styles.dark}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${styles.theme_div} ${styles.blue}`} onClick={function(){theme_changer("blue")}}>
+                                <div className={`${styles.theme_header} ${styles.blue}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.blue}`}>
+                                    <div className={`${styles.theme_results} ${styles.blue}`}>
+                                        <div className={`${styles.theme_result} ${styles.blue}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.blue}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.blue}`}>
+                                        <div className={`${styles.theme_special} ${styles.blue}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${styles.theme_div} ${styles.green}`} onClick={function(){theme_changer("green")}}>
+                                <div className={`${styles.theme_header} ${styles.green}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.green}`}>
+                                    <div className={`${styles.theme_results} ${styles.green}`}>
+                                        <div className={`${styles.theme_result} ${styles.green}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.green}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.green}`}>
+                                        <div className={`${styles.theme_special} ${styles.green}`}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${styles.theme_div} ${styles.red}`} onClick={function(){theme_changer("red")}}>
+                                <div className={`${styles.theme_header} ${styles.red}`}></div>
+                                <div className={`${styles.theme_grid} ${styles.red}`}>
+                                    <div className={`${styles.theme_results} ${styles.red}`}>
+                                        <div className={`${styles.theme_result} ${styles.red}`}></div>
+                                        <div className={`${styles.theme_result} ${styles.red}`}></div>
+                                    </div>
+                                    <div className={`${styles.theme_specials} ${styles.red}`}>
+                                        <div className={`${styles.theme_special} ${styles.red}`}></div>
                                     </div>
                                 </div>
                             </div>

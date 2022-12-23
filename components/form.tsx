@@ -21,8 +21,6 @@ function Form() {
 
     const [suggests, setSuggests] = useState<any>([])
 
-    let suggests_q: string[] = []
-
     const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         try {
             setUserQ(event.target.value)
@@ -100,10 +98,10 @@ function Form() {
     const changeClass = () => {
         let input = document.getElementById('search')
         let button = document.getElementById('submit')
-        if (input && button && suggests_q.length) {
+        if (input && button && event.target.value) {
             input.style.borderRadius = "24px 0px 0px 0px"
             button.style.borderRadius = "0px 24px 0px 0px"
-        } else if (input && button && !suggests_q.length) {
+        } else if (input && button && !event.target.value) {
             input.style.borderRadius = "24px 0px 0px 24px"
             button.style.borderRadius = "0px 24px 24px 0px"
         }

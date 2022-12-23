@@ -49,7 +49,7 @@
   font-weight: 300;
 }
 
-@media only screen and (max-width: 65em) {
+@media only screen and (max-width: 70em) {
   .result_div {
     width: 100%;
     max-width: 40em;
@@ -58,5 +58,8 @@
   }
   .result_h:hover {
     text-decoration: none;
+  }
+    .result_div:hover{
+      transform: none
   }
 }
