@@ -72,13 +72,14 @@ export default Search
 export async function getServerSideProps(context: any) {
     try{
         console.log(`http://${process.env.NEXT_PUBLIC_SM_HOST}:${process.env.NEXT_PUBLIC_SM_PORT}${context.resolvedUrl}`)
-        const response = await fetch(`http://${process.env.NEXT_PUBLIC_SM_HOST}:${process.env.NEXT_PUBLIC_SM_PORT}${context.resolvedUrl}`)
+        const response = await fetch(`http://host.docker.internal:${process.env.NEXT_PUBLIC_SM_PORT}${context.resolvedUrl}`)
         const data = await response.json()
         console.log(data)
         return(format_data(data))
     }
-    catch {
+    catch (err) {
         console.log("Couldn't fetch results, loading static data")
+        console.log(err)
         const data = {
                 fulltext: {
                     results: [
