@@ -50,12 +50,12 @@
   width: 100%;
   display: grid;
   min-width: 25em;
-  grid-row-gap: 40px;
+  grid-row-gap: 15px;
   padding: 50px 0;
   transition: 1s grid-row-gap;
 }
 
-@media only screen and (max-width: 65em) {
+@media only screen and (max-width: 70em) {
   .grid_container {
     grid-template-columns: 1fr;
   }
@@ -72,5 +72,8 @@
     grid-row: 1;
     grid-row-gap: 10px;
     justify-content: center;
+  }
+    .logo{
+      display: none;
   }
 }
