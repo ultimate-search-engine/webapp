@@ -5,7 +5,7 @@ function Calculator(props: any) {
 
     const [mathProblem, setMathProblem] = useState("")
 
-    const [mathResult, setMathResult] = useState("=")
+    const [mathResult, setMathResult] = useState(0)
 
     function calculate(){
         let temp = ''
@@ -45,7 +45,7 @@ function Calculator(props: any) {
         }
         else if (nevbie === "c_c") {
             setMathProblem('')
-            setMathResult('=')
+            setMathResult(0)
         }
         else if (nevbie === "c_e") {
             calculate()
