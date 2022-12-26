@@ -10,6 +10,7 @@ import {Special_goodreads, Special_wiki} from "../components/special"
 import Settings from "../components/settings";
 import {theme_changer} from "../scripts/theme_changer";
 import Calculator from "../components/calculator";
+import Noresult from "../components/noresults"
 
 function Search(data: any) {
 
@@ -48,16 +49,16 @@ function Search(data: any) {
                         <div className={styles.results} id={'results'}>
                             {results.length ? results.map((element: any, i: number) => {
                                 return (<Result data={element} key={i}/>)
-                            }) : <p>No results</p>}
+                            }) : <Noresult/>}
                         </div>
                         <div className={styles.special}>
-                            <Calculator/>
+                            {/*<Calculator/>*/}
                             {special ? special.wiki.map((element: any, i: number) => {
                                 return (<Special_wiki data={element} key={i}/>)
-                            }) : <p>No wiki articles</p>}
+                            }) : <p></p>}
                             {special ? special.goodreads.map((element: any, i: number) => {
                                 return (<Special_goodreads data={element} key={i}/>)
-                            }) : <p>No goodreads articles</p>}
+                            }) : <p></p>}
                         </div>
                     </div>
                 </main>
@@ -259,6 +260,11 @@ export async function getServerSideProps(context: any) {
                     ]
                 }
         }
+//        const data = {
+//            fulltext: {
+//                results: []
+//            }
+//        }
         return (format_data(data))
     }
 

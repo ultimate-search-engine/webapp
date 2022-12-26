@@ -36,7 +36,7 @@ function Calculator(props: any) {
             }
         }
         console.log(`Final: ${temp}`)
-        setMathResult(parseFloat(eval(temp).toFixed(5)))
+        setMathResult((eval(temp).toFixed(5)))
     }
 
     function brasko(nevbie: any){

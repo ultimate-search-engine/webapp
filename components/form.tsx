@@ -98,10 +98,13 @@ function Form() {
     const changeClass = () => {
         let input = document.getElementById('search')
         let button = document.getElementById('submit')
+        // @ts-ignore
         if (input && button && event.target.value) {
             input.style.borderRadius = "24px 0px 0px 0px"
             button.style.borderRadius = "0px 24px 0px 0px"
-        } else if (input && button && !event.target.value) {
+        }
+        // @ts-ignore
+        else if (input && button && !event.target.value) {
             input.style.borderRadius = "24px 0px 0px 24px"
             button.style.borderRadius = "0px 24px 24px 0px"
         }

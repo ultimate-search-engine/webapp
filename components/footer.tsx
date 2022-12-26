@@ -15,6 +15,10 @@ function Footer(props: any) {
         }
     }
 
+    if (queries.indexOf(1) == -1){
+        queries.splice(0,0,0)
+    }
+
     return (
         <footer>
             <div className={styles.pagination}>
