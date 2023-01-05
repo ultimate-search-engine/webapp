@@ -3,6 +3,7 @@ import {useRouter} from "next/router";
 import Image from "next/image";
 import Suggester from "./suggester";
 import React, {useState} from 'react'
+import {string} from "prop-types";
 // import getConfig from 'next/config'
 // const { publicRuntimeConfig } = getConfig()
 
@@ -38,15 +39,18 @@ function Form() {
                     headers: headers,
                     body: body,
                 };
-                console.log(`http://${process.env.NEXT_PUBLIC_SUGGESTER_HOST}:${process.env.NEXT_PUBLIC_SUGGESTER_PORT}/suggest`)
-                const res = await fetch(`http://${process.env.NEXT_PUBLIC_SUGGESTER_HOST}:${process.env.NEXT_PUBLIC_SUGGESTER_PORT}/suggest`, options)
+                const res = await fetch(`/suggest`, options)
                 const data = await res.json()
-                const data_fixed = data.autocomplete.concat(data.next_words)
+                let data_fixed = data.autocomplete.concat(data.next_words.map((el: String) => event.target.value + ' ' + el))
+                data_fixed = data_fixed.filter((el: String, index: number) => {
+                    return index === data_fixed.indexOf(el)
+                })
                 setSuggests(data_fixed)
+                setUserQ(event.target.value)
             } else {
                 setSuggests([])
             }
-            changeClass()
+            changeClass(event)
         }
         catch(err){
             console.log(err)
@@ -70,7 +74,7 @@ function Form() {
             } else {
                 setSuggests([])
             }
-            changeClass()
+            changeClass(event)
         }
 
     }
@@ -80,11 +84,11 @@ function Form() {
         if (activeNode) {
             if (activeNode.className.substring(0, 7) != "Suggest") {
                 setSuggests([])
-                changeClass()
+                changeClass(event)
             }
         } else {
             setSuggests([])
-            changeClass()
+            changeClass(event)
         }
     }
 
@@ -95,7 +99,7 @@ function Form() {
         }
     }, []);
 
-    const changeClass = () => {
+    const changeClass = (event: any) => {
         let input = document.getElementById('search')
         let button = document.getElementById('submit')
         // @ts-ignore
