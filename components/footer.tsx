@@ -15,7 +15,7 @@ function Footer(props: any) {
         }
     }
 
-    if (queries.indexOf(1) == -1){
+    if (queries.indexOf(1) == -1 || queries.indexOf(1) == 0){
         queries.splice(0,0,0)
     }
 

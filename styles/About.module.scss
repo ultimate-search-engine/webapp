@@ -66,6 +66,7 @@
   padding: 10px 10px;
   font-size: 20px;
   font-family: serif, Courier New;
+  text-align: justify;
 }
 
 .image_section {
@@ -262,6 +263,7 @@
 @media only screen and (max-width: 70em) {
     .content_container {
         width: 100%;
+        padding: 0;
     }
   .image_section {
         grid-template-columns: repeat(1, 1fr);
@@ -270,7 +272,8 @@
         grid-template-columns: repeat(2, 1fr);
 
     }
-.description{
-        padding: 0;
+    .description{
+        padding: 0 20px;
+        font-size: 12px;
     }
 }

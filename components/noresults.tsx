@@ -3,7 +3,7 @@ import styles from "../styles/Noresult.module.scss"
 function Noresult(props: any) {
     return (
             <div className={styles.noresult_div}>
-                <p className={styles.noresult_p}>Sorry! We couldn't find any relevant results</p>
+                <p className={styles.noresult_p}>Sorry! We couldn't find any other relevant results</p>
             </div>
             )
 }
