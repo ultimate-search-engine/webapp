@@ -313,8 +313,10 @@ export async function getServerSideProps(context: { resolvedUrl: string }) {
                     // @ts-ignore
                     tempSpecial.wiki.push(data.fulltext.results[i])
                 } else {
-                    if (data.fulltext.results[i].description.length > 360) {
-                        data.fulltext.results[i].description = limitDesc(data.fulltext.results[i].description, 360)
+                    if (data.fulltext.results[i].description) {
+                        if (data.fulltext.results[i].description.length > 360) {
+                            data.fulltext.results[i].description = limitDesc(data.fulltext.results[i].description, 360)
+                        }
                     }
                     tempResults.push(data.fulltext.results[i])
                 }
@@ -323,8 +325,10 @@ export async function getServerSideProps(context: { resolvedUrl: string }) {
                     // @ts-ignore
                     tempSpecial.goodreads.push(data.fulltext.results[i])
                 } else {
-                    if (data.fulltext.results[i].description.length > 360) {
-                        data.fulltext.results[i].description = limitDesc(data.fulltext.results[i].description, 360)
+                    if (data.fulltext.results[i].description) {
+                        if (data.fulltext.results[i].description.length > 360) {
+                            data.fulltext.results[i].description = limitDesc(data.fulltext.results[i].description, 360)
+                        }
                     }
                     tempResults.push(data.fulltext.results[i])
                 }
