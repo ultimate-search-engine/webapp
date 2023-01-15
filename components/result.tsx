@@ -1,6 +1,8 @@
 import styles from "../styles/Result.module.scss"
+import {ResultType} from "../scripts/interfaces"
 
-function Result(props: any) {
+
+function Result(props: { data: ResultType }) {
     return (
         <div className={styles.result_div}>
             <a href={props.data.url}>

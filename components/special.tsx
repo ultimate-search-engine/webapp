@@ -1,6 +1,7 @@
 import styles from "../styles/Special.module.scss"
+import {SpecialType} from "../scripts/interfaces"
 
-export function Special_goodreads(props: any) {
+export function Special_goodreads(props: { data: SpecialType }) {
 
     return (
         <div className={styles.special_div}>
@@ -8,7 +9,7 @@ export function Special_goodreads(props: any) {
                 <h1 className={styles.special_title}>{props.data.title}</h1>
                 <p className={styles.special_url}>{props.data.url}</p>
             </a>
-            <p className={styles.special_rating}>{ props.data.rating ? `${props.data.rating} / 5` : ""}</p>
+            <p className={styles.special_rating}>{props.data.rating ? `${props.data.rating} / 5` : ""}</p>
             <p className={styles.special_desc}>{props.data.description}</p>
             <div className={styles.special_subs}>
                 <p className={styles.special_genre}>Genres:</p>
@@ -21,7 +22,7 @@ export function Special_goodreads(props: any) {
     )
 }
 
-export function Special_wiki(props: any) {
+export function Special_wiki(props: { data: SpecialType }) {
 
     return (
         <div className={styles.special_div}>
@@ -32,8 +33,8 @@ export function Special_wiki(props: any) {
             <p className={styles.special_desc}>{props.data.description}</p>
             <div className={styles.special_subs}>
                 <ul>
-                    {props.data.subsections ? props.data.subsections.map((element: any) => {
-                        let underscore = element.replace(/ /g,"_")
+                    {props.data.subsections ? props.data.subsections.map((element: string) => {
+                        let underscore = element.replace(/ /g, "_")
                         return (
                             <li><a href={`${props.data.url}#${underscore}`}>{element}</a></li>
                         )

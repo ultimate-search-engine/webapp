@@ -46,7 +46,7 @@
   padding: 5px;
   font-size: 12px;
   color: var(--theme_results_p);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media only screen and (max-width: 70em) {
@@ -59,7 +59,7 @@
   .result_h:hover {
     text-decoration: none;
   }
-    .result_div:hover{
-      transform: none
+  .result_div:hover {
+    transform: none
   }
 }

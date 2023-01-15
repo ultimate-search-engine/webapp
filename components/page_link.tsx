@@ -2,7 +2,7 @@ import styles from "../styles/Page_link.module.scss"
 import Link from "next/link";
 import {useRouter} from "next/router";
 
-function Page_link(props: any) {
+function Page_link(props: { data: number }) {
 
     const router = useRouter()
     const query = router.query
@@ -12,7 +12,7 @@ function Page_link(props: any) {
             pathname: 'search',
             query: {q: query.q, length: query.length, pagination: (props.data)}
         }}>
-            <p className={query.pagination == (props.data) ? styles.page_this : styles.page}>{props.data + 1}</p>
+            <p className={query.pagination == (props.data.toString()) ? styles.page_this : styles.page}>{props.data + 1}</p>
         </Link>
     )
 }

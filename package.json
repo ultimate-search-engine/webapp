@@ -9,9 +9,6 @@
     "prod": "TEST=$TEST next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.2.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "i": "^0.3.7",

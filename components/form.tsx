@@ -2,13 +2,14 @@ import styles from "../styles/Form.module.scss"
 import {useRouter} from "next/router";
 import Image from "next/image";
 import Suggester from "./suggester";
-import React, {useState} from 'react'
-import {string} from "prop-types";
+import React, {useState, useEffect, SyntheticEvent} from 'react'
 // import getConfig from 'next/config'
 // const { publicRuntimeConfig } = getConfig()
 
 function Form() {
     const router = useRouter()
+    // Vážně jsem nedokázal přijít na vhodný typ.
+    // FormEvent ChangeEvent... nic nefungovalo
     const submitSearch = async (event: any) => {
         event.preventDefault()
         await router.push({
@@ -20,7 +21,7 @@ function Form() {
 
     const [userQ, setUserQ] = useState(router.query.q ? router.query.q : "")
 
-    const [suggests, setSuggests] = useState<any>([])
+    const [suggests, setSuggests] = useState<Array<string>>([])
 
     const onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         try {
@@ -30,7 +31,7 @@ function Form() {
                 headers.append("Content-Type", "application/json");
                 headers.append("Accept", "application/json");
                 const words = event.target.value.split(/[\s,]+/)
-                const body= JSON.stringify({
+                const body = JSON.stringify({
                     whole_search: event.target.value,
                     last_word: words[words.length - 1]
                 })
@@ -51,8 +52,7 @@ function Form() {
                 setSuggests([])
             }
             changeClass(event)
-        }
-        catch(err){
+        } catch (err) {
             console.log(err)
             console.log("Couldn't fetch suggests, loading static data")
             setUserQ(event.target.value)
@@ -99,20 +99,21 @@ function Form() {
         }
     }, []);
 
-    const changeClass = (event: any) => {
+    const changeClass = (event: React.ChangeEvent) => {
         let input = document.getElementById('search')
         let button = document.getElementById('submit')
-        // @ts-ignore
-        if (input && button && event.target.value) {
+        if (input && button && document.activeElement === input) {
             input.style.borderRadius = "24px 0px 0px 0px"
             button.style.borderRadius = "0px 24px 0px 0px"
-        }
-        // @ts-ignore
-        else if (input && button && !event.target.value) {
+        } else if (input && button && document.activeElement !== input) {
             input.style.borderRadius = "24px 0px 0px 24px"
             button.style.borderRadius = "0px 24px 24px 0px"
         }
     }
+
+    useEffect(() => {
+        router.events.on('routeChangeComplete', changeClass)
+    })
 
     return (
         <>
@@ -120,12 +121,13 @@ function Form() {
                 <form className={styles.form} onSubmit={submitSearch}>
                     <input id="search" name="search" placeholder="Search..." required={true} autoComplete={"off"}
                            value={userQ} onChange={onInputChange} onBlur={onInputFocusOut}/>
-                    <button id="submit" type="submit"><Image className={styles.svg} src="/magnifying_glass.svg" alt="search" width={19}
+                    <button id="submit" type="submit"><Image className={styles.svg} src="/magnifying_glass.svg"
+                                                             alt="search" width={19}
                                                              height={19}/>
                     </button>
                 </form>
                 <div className={styles.suggest_container}>
-                    {suggests.map((element: any, i: React.Key | null | undefined) => {
+                    {suggests.map((element: string, i: React.Key | null | undefined) => {
                         return (<Suggester
                             data={{"element": element, "state": setUserQ, "input": input, "suggests": setSuggests}}
                             key={i}/>)

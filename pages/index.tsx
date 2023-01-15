@@ -6,9 +6,8 @@ import {theme_changer} from "../scripts/theme_changer";
 
 function Home() {
 
-    if (typeof window !== 'undefined'){
+    if (typeof window !== 'undefined') {
         let temp = localStorage.getItem('theme')
-        // @ts-ignore
         theme_changer(temp)
     }
 

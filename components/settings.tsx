@@ -2,7 +2,7 @@ import styles from "../styles/Settings.module.scss"
 import Image from "next/image"
 import {useRouter} from "next/router";
 
-function Settings(props: any) {
+function Settings() {
 
     const router = useRouter()
     const onClickedButton = async (event: any) => {
