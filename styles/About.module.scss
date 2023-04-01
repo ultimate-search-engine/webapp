@@ -127,16 +127,16 @@
     background-color: rgba(10, 10, 10, 1);
   }
 
-    &.blue{
-      background-color: rgba(0, 5, 10, 1);
+  &.blue {
+    background-color: rgba(0, 5, 10, 1);
   }
 
-&.green{
-      background-color: rgba(0, 10, 5, 1);
+  &.green {
+    background-color: rgba(0, 10, 5, 1);
   }
 
-&.red{
-      background-color: rgba(10, 2, 2, 1);
+  &.red {
+    background-color: rgba(10, 2, 2, 1);
   }
 }
 
@@ -158,16 +158,16 @@
     background-color: rgba(20, 20, 20, 1);
   }
 
-&.blue{
-      background-color: rgba(0, 10, 20, 1);
+  &.blue {
+    background-color: rgba(0, 10, 20, 1);
   }
 
-&.green{
-      background-color: rgba(0, 20, 10, 1);
+  &.green {
+    background-color: rgba(0, 20, 10, 1);
   }
 
-&.red {
-      background-color: rgba(20, 5, 5, 1);
+  &.red {
+    background-color: rgba(20, 5, 5, 1);
   }
 }
 
@@ -217,15 +217,16 @@
     background-color: rgba(20, 20, 20, 1);
   }
 
-&.blue{
-      background-color: rgba(0, 10, 20, 1);
-  }
-&.green{
-      background-color: rgba(0, 20, 10, 1);
+  &.blue {
+    background-color: rgba(0, 10, 20, 1);
   }
 
-&.red{
-      background-color: rgba(20, 5, 5, 1);
+  &.green {
+    background-color: rgba(0, 20, 10, 1);
+  }
+
+  &.red {
+    background-color: rgba(20, 5, 5, 1);
   }
 }
 
@@ -247,33 +248,33 @@
     background-color: rgba(20, 20, 20, 1);
   }
 
-&.blue{
-      background-color: rgba(0, 10, 20, 1);
+  &.blue {
+    background-color: rgba(0, 10, 20, 1);
   }
 
-&.green{
-      background-color: rgba(0, 20, 10, 1);
+  &.green {
+    background-color: rgba(0, 20, 10, 1);
   }
 
-&.red{
-      background-color: rgba(20, 5, 5, 1);
+  &.red {
+    background-color: rgba(20, 5, 5, 1);
   }
 }
 
 @media only screen and (max-width: 70em) {
-    .content_container {
-        width: 100%;
-        padding: 0;
-    }
+  .content_container {
+    width: 100%;
+    padding: 0;
+  }
   .image_section {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .theme_selector{
-        grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .theme_selector {
+    grid-template-columns: repeat(2, 1fr);
 
-    }
-    .description{
-        padding: 0 20px;
-        font-size: 12px;
-    }
+  }
+  .description {
+    padding: 0 20px;
+    font-size: 12px;
+  }
 }

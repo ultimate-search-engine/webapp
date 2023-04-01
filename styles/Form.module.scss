@@ -1,13 +1,14 @@
 .search {
   float: left;
   width: 50em;
-  left: calc(50px + 144px);
+  left: calc(50px + 154px);
   height: 6ch;
+  padding: 10px;
 }
 
 .form {
-  height: 5ch;
-  margin-top: .5ch;
+  height: 100%;
+  margin: .25ch auto;
   width: calc(100%);
   display: flex;
 
@@ -57,6 +58,6 @@
   }
 }
 
-.svg{
-    filter: var(--theme_svg);
+.svg {
+  filter: var(--theme_svg);
 }

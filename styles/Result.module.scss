@@ -21,14 +21,32 @@
 .result_h {
   color: var(--theme_results_h);
   margin: 0;
+  padding-bottom: 1px;
   font-size: 20px;
   cursor: pointer;
   width: fit-content;
   font-weight: 500;
+  overflow: hidden;
+  position: relative;
 }
 
-.result_h:hover {
-  text-decoration: underline;
+.result_h::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px !important;
+  background-color: var(--theme_results_h);
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.result_h:hover::after,
+.result_h:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .result_l {

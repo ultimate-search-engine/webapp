@@ -34,8 +34,8 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.svg{
-    filter: var(--theme_svg);
+.svg {
+  filter: var(--theme_svg);
 }
 
 .results {
@@ -75,7 +75,10 @@
     grid-row-gap: 10px;
     justify-content: center;
   }
-    .logo{
-      display: none;
+  .logo {
+    height: 10%;
+    padding: 0 10px;
+    margin: 0;
+    display: flex;
   }
 }

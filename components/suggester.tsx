@@ -7,10 +7,11 @@ interface SuggestType {
     state: React.Dispatch<React.SetStateAction<string | string[]>>,
     input: React.RefObject<HTMLInputElement>,
     suggests: React.Dispatch<React.SetStateAction<string[]>>
+    search: string | string[]
 }
 
 function Suggester(props: { data: SuggestType }) {
-
+    console.log(props.data)
     const router = useRouter()
 
     const pushSuggest = async (e: React.MouseEvent<HTMLElement>) => {
@@ -25,8 +26,17 @@ function Suggester(props: { data: SuggestType }) {
         )
     }
 
+    const renderSameParts = (searched: string | string[], text: string) => {
+        let i = 0
+        while (searched[i] === text[i]) {
+            i++
+        }
+        return i ? (<><b>{searched.slice(0, i)}</b>{text.slice(i, text.length)}</>) : <>{text}</>
+    }
+
     return (
-        <p className={styles.link} onClick={pushSuggest} tabIndex={0}>{props.data.element}</p>
+        <p className={styles.link} onClick={pushSuggest}
+           tabIndex={0}>{renderSameParts(props.data.search, props.data.element)}</p>
     )
 }
 

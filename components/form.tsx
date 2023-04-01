@@ -2,7 +2,7 @@ import styles from "../styles/Form.module.scss"
 import {useRouter} from "next/router";
 import Image from "next/image";
 import Suggester from "./suggester";
-import React, {useState, useEffect, SyntheticEvent} from 'react'
+import React, {useEffect, useState} from 'react'
 // import getConfig from 'next/config'
 // const { publicRuntimeConfig } = getConfig()
 
@@ -129,7 +129,10 @@ function Form() {
                 <div className={styles.suggest_container}>
                     {suggests.map((element: string, i: React.Key | null | undefined) => {
                         return (<Suggester
-                            data={{"element": element, "state": setUserQ, "input": input, "suggests": setSuggests}}
+                            data={{
+                                "element": element, "state": setUserQ,
+                                "input": input, "suggests": setSuggests, 'search': userQ
+                            }}
                             key={i}/>)
                     })}
                 </div>

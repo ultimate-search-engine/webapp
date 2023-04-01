@@ -16,7 +16,7 @@ export interface SpecialType {
     subsections: Array<string>
 }
 
-export interface IndecisiveType{
+export interface IndecisiveType {
     type: string,
     url: string,
     title: string,
