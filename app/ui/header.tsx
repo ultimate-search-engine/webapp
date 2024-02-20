@@ -1,9 +1,8 @@
 import Head from "next/head";
-import styles from "../styles/Search.module.scss";
+import styles from "../search/page.module.scss";
 import Image from "next/image";
 import Form from "./form";
 import Settings from "./settings";
-import React from "react";
 
 function Header(props: { title?: string | string[] | '', searchField?: boolean | false }) {
     return (

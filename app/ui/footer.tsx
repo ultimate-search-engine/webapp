@@ -1,11 +1,10 @@
-import styles from "../styles/Footer.module.scss"
-import React from "react";
+import styles from "./styles/Footer.module.scss"
 import Page_link from "./page_link";
-import {useRouter} from "next/router";
+// import {useRouter} from "next/router";
 
 function Footer(props: { data: number, results: number }) {
-    const router = useRouter()
-    const query = router.query
+    // const router = useRouter()
+    // const query = router.query
 
     // let queries = []
     // for (let i = 0; i < 10; i++) {

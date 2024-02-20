@@ -1,5 +1,7 @@
-import styles from "../styles/Calculator.module.scss"
-import React, {useState} from 'react'
+"use client"
+
+import styles from "./styles/Calculator.module.scss"
+import {useState} from 'react'
 
 function Calculator() {
 

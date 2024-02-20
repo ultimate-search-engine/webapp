@@ -1,4 +1,4 @@
-import styles from "../styles/Noresult.module.scss"
+import styles from "./styles/Noresult.module.scss"
 
 function Noresult() {
     return (

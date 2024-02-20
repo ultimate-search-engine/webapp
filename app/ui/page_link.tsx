@@ -1,12 +1,10 @@
-import styles from "../styles/Page_link.module.scss"
+import styles from "./styles/Page_link.module.scss"
 import Link from "next/link";
-import {useRouter} from "next/router";
-import React from "react";
+import { useSearchParams} from "next/navigation";
 
 function Page_link(props: { data: number, results: number }) {
 
-    const router = useRouter()
-    const query = router.query
+    const query = useSearchParams();
 
     return (
         // <Link href={{
@@ -20,7 +18,7 @@ function Page_link(props: { data: number, results: number }) {
                 <>
                     <Link href={{
                         pathname: 'search',
-                        query: {q: query.q, length: query.length, pagination: (props.data - 1)}
+                        query: {q: query.get("q"), length: query.get("length"), pagination: (props.data - 1)}
                     }}>
                         <p className={styles.page}>{'<= Back'}</p>
                     </Link>
@@ -30,7 +28,7 @@ function Page_link(props: { data: number, results: number }) {
                 <span style={{width: '5px'}}></span>
                 <Link href={{
                     pathname: 'search',
-                    query: {q: query.q, length: query.length, pagination: (props.data + 1)}
+                    query: {q: query.get("q"), length: query.get("length"), pagination: (props.data + 1)}
                 }}>
                     <p className={styles.page}>{'Next =>'}</p>
                 </Link>

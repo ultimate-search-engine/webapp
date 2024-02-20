@@ -1,6 +1,5 @@
-import styles from "../styles/Suggester.module.scss"
-import {useRouter} from "next/router";
-import React from "react";
+import styles from "./styles/Suggester.module.scss"
+import {useRouter} from "next/navigation";
 
 interface SuggestType {
     element: string,
@@ -10,7 +9,8 @@ interface SuggestType {
     search: string | string[]
 }
 
-function Suggester(props: { data: SuggestType }) {
+// function Suggester(props: { data: SuggestType }) {
+    function Suggester(props: any) {
     console.log(props.data)
     const router = useRouter()
 
@@ -19,10 +19,8 @@ function Suggester(props: { data: SuggestType }) {
         props.data.state(props.data.element)
         props.data.input.current?.focus()
         props.data.suggests([])
-        await router.push({
-                pathname: '/search',
-                query: {q: props.data.element, length: 16, pagination: "0"}
-            },
+        await router.push(
+                `/search?q=${props.data.element}&length=16&pagination=0`
         )
     }
 
